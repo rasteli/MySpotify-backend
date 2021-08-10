@@ -27,7 +27,10 @@ app.post("/login", (req, res) => {
                 expiresIn: data.body.expires_in,
             });
         })
-        .catch(() => res.sendStatus(400));
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(400);
+        });
 });
 
 // Refreshes the access token every one hour
